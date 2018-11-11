@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Dictionary</string>
     <string name="newspaper">Newspaper</string>
+
+    <!--Prothom Alo Info-->
+    <string name="prothom_alo">Prothom Alo</string>
+    <string name="prothom_alo_desc">Prothom Alo  is  the  highest  circulated  and  most  read  newspaper  in  Bangladesh.  Visit  Prothom  Alo  English  website  for  News  ranging  from  local  to  international,  entertainment  to  technology,  Weather  to  sports.</string>
+    <string name="prothom_alo_url">https://en.prothomalo.com/</string>
+
+    <!--The Daily Star Info-->
+    <string name="the_daily_star">The Daily Star</string>
+    <string name="the_daily_star_desc">The  Daily  Star  is  the  largest  circulating  daily  English-language  newspaper  in  Bangladesh.  The  online  version  of  The  Daily  Star  as  a  leading  English  daily  newspaper  of  Bangladesh  is  updating  24/7  with  latest,  breaking,  politics,  business,  technology,  world,  entertainment,  sports,  lifestyle  and  crime  news.</string>
+    <string name="the_daily_star_url">https://www.thedailystar.net/</string>
+
+    <!--The Independent-->
+    <string name="the_independent">The Independent</string>
+    <string name="the_independent_desc">The  latest  in  Bangladesh  News  and  World  News  from  TheIndependent,  Bangladesh.  Visit  The  Independent  for  all  sort  of  Local  and  International  News.</string>
+    <string name="the_independent_url">http://www.theindependentbd.com/</string>
+
 </resources>
