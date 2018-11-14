@@ -1,5 +1,6 @@
 package com.fahimshahrierrasel.dictionary.main.main;
 
+import com.fahimshahrierrasel.dictionary.R;
 import com.fahimshahrierrasel.dictionary.main.data.model.NewsPaper;
 import com.fahimshahrierrasel.dictionary.main.data.source.local.NewsPaperData;
 
@@ -23,11 +24,21 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void onNewsPaperItemClicked(NewsPaper newsPaper) {
+        mainView.openNewsPaperWebView(newsPaper);
+    }
 
+    @Override
+    public void addFragmentTitle() {
+        mainView.setFragmentTitle(
+                mainView.getFragmentContext()
+                        .getResources()
+                        .getString(R.string.app_name)
+        );
     }
 
     @Override
     public void start() {
+        addFragmentTitle();
         getNewspapers();
         mainView.populateNewspaperRecyclerView(newsPapers);
     }

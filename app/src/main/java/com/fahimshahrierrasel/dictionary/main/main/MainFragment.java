@@ -5,21 +5,27 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.fahimshahrierrasel.dictionary.R;
 import com.fahimshahrierrasel.dictionary.main.adapter.NewsPaperAdapter;
 import com.fahimshahrierrasel.dictionary.main.data.model.NewsPaper;
+import com.fahimshahrierrasel.dictionary.main.newspaper.NewsPaperContract;
+import com.fahimshahrierrasel.dictionary.main.newspaper.NewsPaperFragment;
+import com.fahimshahrierrasel.dictionary.main.newspaper.NewsPaperPresenter;
 
 import java.util.List;
 
 public class MainFragment extends Fragment implements MainContract.View {
     private MainContract.Presenter mainPresenter;
+    private NewsPaperContract.Presenter newsPaperPresenter;
     /**
      * Android Views
      **/
@@ -66,6 +72,17 @@ public class MainFragment extends Fragment implements MainContract.View {
     }
 
     @Override
+    public void openNewsPaperWebView(NewsPaper newsPaper) {
+        NewsPaperFragment newsPaperFragment = NewsPaperFragment.newInstance(newsPaper.getName(), newsPaper.getUrl());
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, newsPaperFragment)
+                .addToBackStack(null)
+                .commit();
+
+        newsPaperPresenter = new NewsPaperPresenter(newsPaperFragment);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         mainPresenter.start();
@@ -75,6 +92,12 @@ public class MainFragment extends Fragment implements MainContract.View {
     public void onDestroy() {
         super.onDestroy();
         mainPresenter.destroy();
+    }
+
+    @Override
+    public void setFragmentTitle(String title) {
+        if (getActivity() != null)
+            ((MainActivity) getActivity()).setActionBarTitle(title);
     }
 
     @Override

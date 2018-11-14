@@ -11,11 +11,15 @@ import java.util.List;
 public interface MainContract {
     interface Presenter extends BasePresenter {
         void getNewspapers();
+
         void onNewsPaperItemClicked(NewsPaper newsPaper);
     }
 
     interface View extends BaseView<MainContract.Presenter> {
         void populateNewspaperRecyclerView(List<NewsPaper> newsPapers);
+
         Context getFragmentContext();
+
+        void openNewsPaperWebView(NewsPaper newsPaper);
     }
 }
